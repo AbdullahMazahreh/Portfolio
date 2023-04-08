@@ -1,0 +1,400 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: marker;
+  src: url(Fonts/Permanent-marker/PermanentMarker-Regular.ttf);
+}
+
+@font-face {
+  font-family: Ariz;
+  src: url(Fonts/Arizonia/Arizonia-Regular.ttf);
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+.a-container {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 2fr 2fr 2fr 2fr 2fr 2fr 1fr;
+}
+
+header {
+  grid-column: 1/8;
+  grid-row: 1/2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: #181823;
+}
+
+.a-logo {
+  grid-column: 1/2;
+  background-color: black;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-radius: 0px 0px 25px 0px;
+  height: 10vw;
+}
+
+.a-logo img {
+  max-height: 100%;
+}
+
+.a-initials {
+  color: white;
+  font-size: 2vw;
+  padding: 2vh;
+  font-family: ariz;
+}
+
+.a-menu {
+  grid-column: 3/5;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.a-about-me,
+.a-contact-me,
+.a-my-work,
+.a-home {
+  padding: 20px;
+  border-radius: 50px 10px 50px 30px;
+  cursor: pointer;
+  font-size: 1.5vw;
+  position: relative;
+  z-index: 2;
+}
+
+.a-about-me:hover,
+.a-contact-me:hover,
+.a-my-work:hover,
+.a-home:hover {
+  background-color: #6f6f6f;
+  animation-name: a-Nav-Buttons;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+.a-saying {
+  grid-column: 2/3;
+  font-family: marker;
+  color: white;
+  align-self: end;
+  font-size: 1vw;
+  padding: 30px;
+}
+
+@keyframes a-Nav-Buttons {
+  from {
+    background-color: #181823;
+    color: white;
+    padding: 20px;
+  }
+  to {
+    background-color: #6f6f6f;
+    color: black;
+    padding: 15px;
+    margin: 5px;
+  }
+}
+
+.a-rightside {
+  grid-column: 3/7;
+  grid-row: 2/7;
+  background-color: #181823;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.a-leftside {
+  grid-column: 1/3;
+  grid-row: 2/7;
+  background-image: linear-gradient(to right, black 5%, #181823 60%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.a-my-photo img {
+  height: 60vh;
+  border-radius: 100px;
+}
+
+.a-container::after {
+  content: "";
+  clip-path: circle(40% at right 70%);
+  height: 100%;
+  width: 100%;
+  background-color: #4a4a4a;
+  position: absolute;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.a-my-name {
+  font-size: 4.5vw;
+  color: white;
+}
+
+.a-opening {
+  font-size: 2vw;
+  color: #6d6d6d;
+}
+
+.a-work-field {
+  font-size: 4.5vw;
+  color: #e6e6e6;
+}
+
+.a-footer {
+  grid-row: 7/8;
+  grid-column: 1/7;
+}
+
+a {
+  position: relative;
+  z-index: 2;
+}
+
+.a-hamburger-menu {
+  display: none;
+  width: 100vw;
+  height: 300px;
+  background-color: #1c1c1c;
+  border: 5px solid white;
+}
+
+.a-bars,
+.a-bars::before,
+.a-bars::after {
+  content: "";
+  width: 40px;
+  height: 8px;
+  background-color: white;
+  display: none;
+  border-radius: 9999px;
+}
+
+@media screen and (max-width: 1200px) {
+  .a-my-photo img {
+    height: 40vw;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .a-logo {
+    height: 10.5vw;
+  }
+
+  header {
+    background-image: linear-gradient(to right, black 5%, #181823 25%);
+  }
+
+  .a-my-photo img {
+    height: 50vh;
+  }
+
+  .a-saying {
+    align-self: flex-start;
+    font-size: 1.2vh;
+  }
+
+  .a-menu div {
+    font-size: 1.3vh;
+  }
+
+  .a-leftside {
+    grid-column: 1/-1;
+    grid-row: 4/7;
+    background-image: linear-gradient(to right, black 5%, #181823 25%);
+  }
+
+  .a-rightside {
+    grid-column: 1/-1;
+    grid-row: 2/4;
+    background-image: linear-gradient(to right, black 5%, #181823 25%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+  }
+
+  .a-content {
+    margin-top: 40px;
+  }
+
+  .a-content div {
+    font-size: 3.5vh;
+  }
+
+  .a-container::after {
+    clip-path: circle(50% at right 30%);
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .a-menu {
+    grid-column: 4/5;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .a-saying {
+    font-size: 1.3vw;
+  }
+
+  header {
+    background-image: linear-gradient(to right, black 5%, #181823 20%);
+  }
+
+  .a-content div {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .a-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+  }
+
+  header {
+    grid-column: 1/3;
+    grid-row: 1/3;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    background-color: #181823;
+    height: 100%;
+    background-image: linear-gradient(to right, black 5%, #181823 60%);
+  }
+
+  .a-logo {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    height: 8vh;
+  }
+
+  .a-menu {
+    grid-column: 4/5;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .a-saying {
+    grid-column: 1/5;
+    grid-row: 2/3;
+    justify-self: center;
+    align-self: center;
+    font-size: 1.5vh;
+  }
+
+  .a-about-me,
+  .a-contact-me,
+  .a-my-work,
+  .a-home {
+    display: none;
+  }
+
+  .a-rightside {
+    grid-column: 1/3;
+    grid-row: 3/6;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: linear-gradient(to right, black 5%, #181823 60%);
+  }
+
+  .a-content div {
+    font-size: 2.3vh;
+  }
+
+  .a-leftside {
+    grid-column: 1/3;
+    grid-row: 6/9;
+  }
+
+  .a-footer {
+    grid-column: 1/3;
+    grid-row: 9/10;
+    position: relative;
+    z-index: 3;
+  }
+
+  .a-container::after {
+    clip-path: circle(50% at right 10%);
+  }
+
+  .a-hamburger-menu {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    top: 0px;
+    transform: translate(-100%);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .a-hamburger-menu div {
+    font-size: 25px;
+    border: white solid 1px;
+    width: 50%;
+    text-align: center;
+    border-radius: 50px 10px 50px 30px;
+  }
+
+  .a-hamburger-menu div:hover {
+    background-color: #6f6f6f;
+    animation-name: a-Nav-Buttons;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+  }
+
+  .a-bars,
+  .a-bars::before,
+  .a-bars::after {
+    grid-column: 4/5;
+    grid-row: 1/2;
+    align-self: center;
+    justify-self: flex-end;
+    display: block;
+    margin-right: 10px;
+    position: relative;
+    z-index: 4;
+  }
+
+  .a-bars::before {
+    position: relative;
+    bottom: 10px;
+  }
+
+  .a-bars::after {
+    position: relative;
+    top: 2px;
+  }
+}
